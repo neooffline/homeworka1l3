@@ -7,7 +7,7 @@ public class Weather implements ChangeValue {
     private String fullWeather;
 
     public Weather() {
-        fullWeather = "NONE";
+        fullWeather = "Нет данных по погоде";
     }
 
     public void setFullWeather() {
@@ -23,7 +23,7 @@ public class Weather implements ChangeValue {
 
     @Override
     public void changeTemp() {
-        temperature = getRandomNumberInRange(0, 26);
+        temperature = getRandomNumberInRange(-10, 26);
     }
 
     @Override

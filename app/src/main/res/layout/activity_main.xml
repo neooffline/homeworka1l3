@@ -33,10 +33,10 @@
             app:layout_row="0" />
 
         <Button
-            android:id="@+id/change_weather"
+            android:id="@+id/measure_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CHANGE"
+            android:text="measure"
             app:layout_column="2"
             app:layout_row="0" />
     </android.support.v7.widget.GridLayout>
