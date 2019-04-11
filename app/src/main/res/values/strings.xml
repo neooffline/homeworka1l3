@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Homework_a1l1</string>
     <string name="weather_label">Погода</string>
+    <string name="weather_value">None</string>
+    <string name="button_label">mesure</string>
 </resources>

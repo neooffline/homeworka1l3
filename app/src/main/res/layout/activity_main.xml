@@ -28,7 +28,7 @@
             android:id="@+id/weather"
             android:layout_width="198dp"
             android:layout_height="wrap_content"
-            android:text="NoNe"
+            android:text="@string/weather_value"
             app:layout_column="1"
             app:layout_row="0" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/measure_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="measure"
+            android:text="@string/button_label"
             app:layout_column="2"
             app:layout_row="0" />
     </android.support.v7.widget.GridLayout>
