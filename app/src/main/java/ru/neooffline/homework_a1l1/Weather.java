@@ -1,7 +1,11 @@
 package ru.neooffline.homework_a1l1;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Locale;
 import java.util.Random;
 
-public class Weather implements ChangeValue {
+public class Weather implements ChangeValue,Parcelable{
     private int temperature;
     private int humidity;
     private String fullWeather;
@@ -10,10 +14,28 @@ public class Weather implements ChangeValue {
         fullWeather = "Нет данных по погоде";
     }
 
+    private Weather(Parcel in) {
+        temperature = in.readInt();
+        humidity = in.readInt();
+        fullWeather = in.readString();
+    }
+
+    public static final Creator<Weather> CREATOR = new Creator<Weather>() {
+        @Override
+        public Weather createFromParcel(Parcel in) {
+            return new Weather(in);
+        }
+
+        @Override
+        public Weather[] newArray(int size) {
+            return new Weather[size];
+        }
+    };
+
     public void setFullWeather() {
         changeTemp();
         changeHumidity();
-        this.fullWeather = String.format("Температура: %d С\u00b0\nВлажность: %d %%",
+        this.fullWeather = String.format(Locale.ENGLISH,"Температура: %d С\u00b0\nВлажность: %d %%",
                 this.temperature, this.humidity);
     }
 
@@ -40,4 +62,13 @@ public class Weather implements ChangeValue {
         return r.nextInt((max - min) + 1) + min;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }
