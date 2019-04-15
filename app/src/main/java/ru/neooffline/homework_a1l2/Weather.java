@@ -9,6 +9,7 @@ public class Weather implements ChangeValue,Parcelable{
     private int temperature;
     private int humidity;
     private String fullWeather;
+//    private Context context = getAc
 
     public Weather() {
         fullWeather = "Нет данных по погоде";
