@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 current = weather.getFullWeather();
                 Log.d("Weather","get weather" + current);
             } catch (NullPointerException n) {
-                n.printStackTrace();
+                Log.e("Weather",n.getMessage());
                 current = "Error while reading values";
             }
         }
@@ -53,10 +53,12 @@ public class MainActivity extends AppCompatActivity {
         changeValue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                weather.setFullWeather();
                 Log.d("Button", "Button pressed");
-                currentWeather.setText(weather.getFullWeather());
-                Log.d("TextField", "TextField filled");
+                weather.setFullWeather();
+                String current = weather.getFullWeather();
+                currentWeather.setText(current);
+                Log.d("TextField", "TextField filled with: "
+                        + current);
             }
         });
 
