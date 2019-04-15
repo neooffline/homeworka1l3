@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final TextView currentWeather = findViewById(R.id.weather);
+        makeToastNLog("App Created");
         String current;
         if (savedInstanceState == null)
             weather = new Weather();
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TextField", "TextField filled");
             }
         });
-        makeToastNLog("App Created");
+
     }
 
     @Override
@@ -67,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         makeToastNLog("App onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        makeToastNLog("App Stopped");
     }
 
     @Override
