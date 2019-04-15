@@ -1,4 +1,4 @@
-package ru.neooffline.homework_a1l1;
+package ru.neooffline.homework_a1l2;
 import android.os.Parcel;
 import android.os.Parcelable;
 
