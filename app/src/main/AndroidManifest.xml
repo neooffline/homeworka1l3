@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.neooffline.homework_a1l2">
+    package="ru.neooffline.homeworka1l3">
 
     <application tools:replace="android:appComponentFactory"
         android:allowBackup="true"

@@ -1,4 +1,4 @@
-package ru.neooffline.homework_a1l2;
+package ru.neooffline.homeworka1l3;
 
 interface ChangeValue {
     void changeTemp();
