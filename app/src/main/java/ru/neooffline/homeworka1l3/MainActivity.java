@@ -1,7 +1,9 @@
-package ru.neooffline.homework_a1l1;
+package ru.neooffline.homeworka1l3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import ru.neooffline.homeworka1l3.R;
 
 public class MainActivity extends AppCompatActivity {
 
