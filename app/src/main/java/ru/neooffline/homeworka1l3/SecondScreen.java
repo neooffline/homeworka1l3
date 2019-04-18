@@ -7,29 +7,25 @@ import android.view.View;
 import android.widget.TextView;
 
 public class SecondScreen extends AppCompatActivity {
+    static final String weatherObj = "weatherObj";
     private TextView tempValue, humValue, pressValue;
-    private Weather weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_screen);
-        Intent i = getIntent();
-        /*try {
-            weather = i.getParcelableExtra("weatherObj");
-        } catch (RuntimeException ne) {
-            weather = new Weather(true);
-        }*/
-        weather = new Weather(true);
-        humValue.findViewById(R.id.hum_value);
-        pressValue.findViewById(R.id.press_value);
-        if (!false) {
-            tempValue.setVisibility(View.INVISIBLE);
-        }
         tempValue.findViewById(R.id.temp_value);
-        tempValue.setText(String.format("%d C", weather.getTemperature()));
-        humValue.setText(String.format("%d %%", weather.getHumidity()));
-        pressValue.setText(String.format("%d hPa", weather.getPressure()));
+        tempValue.setText("шазам");
+        humValue.findViewById(R.id.hum_value);
+        humValue.setText("оглы");
+        pressValue.findViewById(R.id.press_value);
+        pressValue.setText("лукойл");
+//        dumpIntent(i);
+        Weather weather = this.getIntent().getExtras().getParcelable(weatherObj);
+        weather.changePres();
+//        tempValue.setText(String.format("%d C", weather.getTemperature()).toString());
+//        humValue.setText(String.format("%s %%", weather.getHumidity()));
+//        pressValue.setText(String.format("%s hPa", weather.getPressure()));
     }
 
     public void goBack(View view) {

@@ -11,6 +11,7 @@ public class Weather implements ChangeValue, Parcelable {
     private int temperature;
     private int humidity;
     private int pressure;
+    private String fullWeather;
 
     public int getTemperature() {
         return temperature;
@@ -24,7 +25,7 @@ public class Weather implements ChangeValue, Parcelable {
         return pressure;
     }
 
-    private String fullWeather;
+
 //    private Context context = getAc
 
     public Weather(boolean isFull) {
@@ -38,10 +39,10 @@ public class Weather implements ChangeValue, Parcelable {
     }
 
     private Weather(Parcel in) {
-        temperature = in.readInt();
-        humidity = in.readInt();
-        pressure = in.readInt();
-        fullWeather = in.readString();
+        this.temperature = in.readInt();
+        this.humidity = in.readInt();
+        this.pressure = in.readInt();
+        this.fullWeather = in.readString();
     }
 
     public static final Creator<Weather> CREATOR = new Creator<Weather>() {
@@ -82,11 +83,12 @@ public class Weather implements ChangeValue, Parcelable {
         humidity = getRandomNumberInRange(20, 90);
     }
 
-    public void changeAll(){
+    public void changeAll() {
         changeTemp();
         changeHumidity();
         changePres();
     }
+
     private static int getRandomNumberInRange(int min, int max) {
 
         if (min >= max) {
@@ -103,6 +105,9 @@ public class Weather implements ChangeValue, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeInt(this.temperature);
+        dest.writeInt(this.humidity);
+        dest.writeInt(this.pressure);
+        dest.writeString(this.fullWeather);
     }
 }

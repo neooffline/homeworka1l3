@@ -14,7 +14,8 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements Serializable {
-    private Weather weather;
+    public Weather weather;
+    static final String weatherObj = "weatherObj";
     private TextView currentWeather;
     private Button changeValue;
     private CheckBox checkTemp, checkHum, checkPress;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     public void goToSecond(View view) {
         weather.changeAll();
         Intent intent = new Intent(this, SecondScreen.class);
-        intent.putExtra("weatherObj",weather);
+        intent.putExtra(weatherObj,weather);
         intent.putExtra("isCheckTemp", checkTemp.isChecked());
         intent.putExtra("isCheckHum", checkHum.isChecked());
         intent.putExtra("isCheckPress", checkPress.isChecked());
