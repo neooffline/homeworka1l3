@@ -11,7 +11,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class MainActivity extends AppCompatActivity implements Serializable {
     private Weather weather;
     private TextView currentWeather;
     private Button changeValue;
@@ -44,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         weather = new Weather(true);
+        checkTemp = findViewById(R.id.check_temp);
+        checkHum = findViewById(R.id.check_hum);
+        checkPress = findViewById(R.id.check_pres);
         if (savedInstanceState != null) {
-            checkTemp = findViewById(R.id.check_temp);
-            checkHum = findViewById(R.id.check_hum);
-            checkPress = findViewById(R.id.check_pres);
             checkTemp.setChecked(savedInstanceState.getBoolean("isCheckTemp"));
             checkHum.setChecked(savedInstanceState.getBoolean("isCheckHum"));
             checkPress.setChecked(savedInstanceState.getBoolean("isCheckPress"));
@@ -87,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToSecond(View view) {
+        weather.changeAll();
         Intent intent = new Intent(this, SecondScreen.class);
+        intent.putExtra("weatherObj",weather);
         intent.putExtra("isCheckTemp", checkTemp.isChecked());
         intent.putExtra("isCheckHum", checkHum.isChecked());
         intent.putExtra("isCheckPress", checkPress.isChecked());

@@ -3,6 +3,7 @@ package ru.neooffline.homeworka1l3;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Random;
 
@@ -80,6 +81,7 @@ public class Weather implements ChangeValue, Parcelable {
     public void changeHumidity() {
         humidity = getRandomNumberInRange(20, 90);
     }
+
     public void changeAll(){
         changeTemp();
         changeHumidity();

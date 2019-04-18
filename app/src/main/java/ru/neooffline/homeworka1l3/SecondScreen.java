@@ -14,14 +14,22 @@ public class SecondScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_screen);
-        weather = savedInstanceState.getParcelable("weather");
-        tempValue.findViewById(R.id.temp_value);
+        Intent i = getIntent();
+        /*try {
+            weather = i.getParcelableExtra("weatherObj");
+        } catch (RuntimeException ne) {
+            weather = new Weather(true);
+        }*/
+        weather = new Weather(true);
         humValue.findViewById(R.id.hum_value);
         pressValue.findViewById(R.id.press_value);
-        tempValue.setVisibility(View.INVISIBLE);
+        if (!false) {
+            tempValue.setVisibility(View.INVISIBLE);
+        }
+        tempValue.findViewById(R.id.temp_value);
         tempValue.setText(String.format("%d C", weather.getTemperature()));
-        tempValue.setText(String.format("%d %%", weather.getHumidity()));
-        tempValue.setText(String.format("%d hPa", weather.getPressure()));
+        humValue.setText(String.format("%d %%", weather.getHumidity()));
+        pressValue.setText(String.format("%d hPa", weather.getPressure()));
     }
 
     public void goBack(View view) {
