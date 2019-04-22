@@ -11,6 +11,7 @@ public class Weather implements ChangeValue, Parcelable {
     private int temperature;
     private int humidity;
     private int pressure;
+    private int[] allparams;
 
     public int getTemperature() {
         return temperature;
@@ -24,6 +25,13 @@ public class Weather implements ChangeValue, Parcelable {
         return pressure;
     }
 
+    int[] getAllparams() {
+        allparams[0] = temperature;
+        allparams[1] = humidity;
+        allparams[2] = pressure;
+        return allparams;
+    }
+
     private String fullWeather;
 //    private Context context = getAc
 
@@ -32,6 +40,7 @@ public class Weather implements ChangeValue, Parcelable {
             temperature = 0;
             humidity = 0;
             pressure = 0;
+            allparams = new int[3];
         } else {
             fullWeather = "Нет данных по погоде";
         }
@@ -42,6 +51,7 @@ public class Weather implements ChangeValue, Parcelable {
         this.humidity = in.readInt();
         this.pressure = in.readInt();
         this.fullWeather = in.readString();
+//        this.allparams=in.readIntArray(getAllparams());
     }
 
     public static final Creator<Weather> CREATOR = new Creator<Weather>() {
@@ -82,11 +92,15 @@ public class Weather implements ChangeValue, Parcelable {
         humidity = getRandomNumberInRange(20, 90);
     }
 
-    void changeAll(){
+    void changeAll() {
         changeTemp();
         changeHumidity();
         changePres();
+        allparams[0]=temperature;
+        allparams[1]=humidity;
+        allparams[2]=pressure;
     }
+
     private static int getRandomNumberInRange(int min, int max) {
 
         if (min >= max) {
@@ -103,9 +117,10 @@ public class Weather implements ChangeValue, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-dest.writeInt(this.temperature);
+        dest.writeInt(this.temperature);
         dest.writeInt(this.humidity);
         dest.writeInt(this.pressure);
         dest.writeString(this.fullWeather);
+        dest.writeIntArray(this.allparams);
     }
 }
