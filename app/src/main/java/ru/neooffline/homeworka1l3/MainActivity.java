@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         Intent intent = new Intent(this.getApplicationContext(), SecondScreen.class);
         intent.putExtra(TOKEN, weather);
         chekes();
-        intent.putExtra(isCheckedParam+0,allCheckBoxies[0].isChecked());
-        intent.putExtra(isCheckedParam+1,allCheckBoxies[1].isChecked());
-        intent.putExtra(isCheckedParam+2,allCheckBoxies[2].isChecked());
+        intent.putExtra("isCheckedParam0",true);
+        intent.putExtra("isCheckedParam1",true);
+        intent.putExtra("isCheckedParam2",true);
        /* for (int i = 0; i < allCheckBoxies.length; i++) {
             intent.putExtra(isCheckedParam + i, allCheckBoxies[i].isChecked());
         }*/
